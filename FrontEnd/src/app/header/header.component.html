@@ -1,0 +1,19 @@
+<p>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row class="bg-violet-700 justify-between">
+            <span>App Name</span>
+            <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="">Log In</button>
+  <button mat-menu-item [routerLink]="'/backoffice'">BackOffice</button>
+</mat-menu>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row class="bg-violet-400 justify-between">
+            <span>Description</span>
+            <button mat-icon-button>
+                <mat-icon>share</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
