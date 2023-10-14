@@ -1,13 +1,13 @@
 const db =require("../config/db")
-class nvetude{
+class competence{
 
 
-    static async getnvetude()
+    static async getcompetence()
     {
         return new Promise ((resolve,reject) =>{
 
 
-            db.query("Select * from nv_etude",[],(error,result)=>
+            db.query("Select * from competence",[],(error,result)=>
             {
                 if(!error)
                 {
@@ -21,4 +21,4 @@ class nvetude{
     }
 }
 
-module.exports=nvetude
+module.exports=competence

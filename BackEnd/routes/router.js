@@ -5,16 +5,10 @@ const router = require('express').Router();
 
 router.get("/nvetude",nvetudecontroller.getallnvetude);
 
-router.get("/thematique",(req,res,next)=>{
-    res.send("thematique")
-})
+router.get("/thematique",thematiquecontroller,getallthematique);
 
-router.get("/competence",(req,res,next)=>{
-    res.send("competence")
-})
+router.get("/competence",competencecontroller,getallcompetence);
 
-router.get("/souscompetence",(req,res,next)=>{
-    res.send("souscompetence")
-})
+router.get("/souscompetence",souscompetencecontroller,getallsouscompetence);
 
 module.exports=router
