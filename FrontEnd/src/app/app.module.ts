@@ -14,7 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { QuestionsComponent } from './questions/questions.component';
 import { StepperComponent } from './stepper/stepper.component';
@@ -51,6 +51,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

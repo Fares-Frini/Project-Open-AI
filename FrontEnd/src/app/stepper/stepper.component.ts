@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators,FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { StepperService } from "./stepper.service";
+import { HttpClient } from '@angular/common/http';
 interface Annee {
   name: string;
 }
@@ -23,8 +24,24 @@ interface souscompetence {
   styleUrls: ['./stepper.component.css']
 })
 
-export class StepperComponent {
-  constructor(private _formBuilder: FormBuilder) {}
+export class StepperComponent implements OnInit {
+
+  public getJsonValue :any ;
+  public postJsonValue : any;
+  constructor(private _formBuilder: FormBuilder , private http:HttpClient ) {}
+ 
+  ngOnInit(): void {
+    this.getMethod();
+  }
+  
+  public getMethod()
+  {
+    this.http.get("http://localhost:3001/nvetude").subscribe((data) =>
+    {
+      console.log(data);
+    })
+  }
+  
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -82,4 +99,6 @@ export class StepperComponent {
     {name: 'souscompetences'},
     {name: 'souscompetences'},
   ];
+
+  
 }

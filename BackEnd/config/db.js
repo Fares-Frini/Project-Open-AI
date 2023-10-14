@@ -6,7 +6,7 @@ const db = mysql.createPool(
         connectionLimit: 10,
         host: 'localhost',
         user:'root',
-        password:'dbzadnen123456789',
+        password:'',
         database:'projectai_db',
     }
 );
