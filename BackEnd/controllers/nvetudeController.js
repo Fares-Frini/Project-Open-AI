@@ -6,7 +6,7 @@ class nvetudeController
     static async getallnvetude(req,res)
     {
         var results = await nvetude.getnvetude();
-    
+        console.log(req.get("host"));
         res.send(results);
          
     }

@@ -1,22 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators,FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { StepperService } from "./stepper.service";
-import { HttpClient } from '@angular/common/http';
-interface Annee {
-  name: string;
-}
-
-interface Matiere {
-  name: string;
-}
-
-interface Competence {
-  name: string;
-}
-
-interface souscompetence {
-  name: string;
-}
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-stepper',
@@ -25,7 +10,10 @@ interface souscompetence {
 })
 
 export class StepperComponent implements OnInit {
-
+  public nvetude : any | undefined ;
+  public thematique : any | undefined;
+  public competence : any | undefined;
+  public souscompetence : any | undefined;
   public getJsonValue :any ;
   public postJsonValue : any;
   constructor(private _formBuilder: FormBuilder , private http:HttpClient ) {}
@@ -36,9 +24,25 @@ export class StepperComponent implements OnInit {
   
   public getMethod()
   {
-    this.http.get("http://localhost:3001/nvetude").subscribe((data) =>
+    this.http.get("/api/nvetude").subscribe((data) =>
     {
       console.log(data);
+      this.nvetude=data;
+    })
+    this.http.get("/api/thematique").subscribe((data) =>
+    {
+      console.log(data);
+      this.thematique=data;
+    })
+    this.http.get("/api/competence").subscribe((data) =>
+    {
+      console.log(data);
+      this.competence=data;
+    })
+    this.http.get("/api/souscompetence").subscribe((data) =>
+    {
+      console.log(data);
+      this.souscompetence=data;
     })
   }
   
@@ -56,49 +60,15 @@ export class StepperComponent implements OnInit {
     fourthCtrl: ['', Validators.required],
   });
   isEditable = false; 
-  anneeControl = new FormControl<Annee | null>(null, Validators.required);
+  anneeControl = new FormControl<object | null>(null, Validators.required);
   selectanneeFormControl = new FormControl('', Validators.required);
-  annees: Annee[] = [  
-    {name: '1ère Année'},
-    {name: '2ème Année'},
-    {name: '3ème Année'},
-    {name: '4ère Année'},
-    {name: '5ère Année'},
-    {name: '6ère Année'},
-  ];
 
-  matiereControl = new FormControl<Matiere | null>(null, Validators.required);
+  matiereControl = new FormControl<object | null>(null, Validators.required);
   selectmatiereFormControl = new FormControl('', Validators.required);
-  matieres: Competence[] = [  
-    {name: 'Français'},
-    {name: 'Anglais'},
-    {name: 'Mathématique'},
-    {name: 'Physique'},
-    {name: 'Arabe'},
-    {name: 'Informatique'},
-  ];
 
-  competenceControl = new FormControl<Competence | null>(null, Validators.required);
+  competenceControl = new FormControl<object | null>(null, Validators.required);
   selectcompetenceFormControl = new FormControl('', Validators.required);
-  competences: Competence[] = [  
-    {name: 'competences'},
-    {name: 'competences'},
-    {name: 'competences'},
-    {name: 'competences'},
-    {name: 'competences'},
-    {name: 'competences'},
-  ];
 
-  souscompetenceControl = new FormControl<souscompetence | null>(null, Validators.required);
+  souscompetenceControl = new FormControl<object | null>(null, Validators.required);
   selectsouscompetenceFormControl = new FormControl('', Validators.required);
-  souscompetences: Competence[] = [  
-    {name: 'souscompetences'},
-    {name: 'souscompetences'},
-    {name: 'souscompetences'},
-    {name: 'souscompetences'},
-    {name: 'souscompetences'},
-    {name: 'souscompetences'},
-  ];
-
-  
 }

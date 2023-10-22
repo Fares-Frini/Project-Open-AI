@@ -23,7 +23,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list'
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { NvetudeComponent } from './back-office/nvetude/nvetude.component';
+import { ThematiqueComponent } from './back-office/thematique/thematique.component';
+import { CompetenceComponent } from './back-office/competence/competence.component';
+import { SouscompetenceComponent } from './back-office/souscompetence/souscompetence.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +38,11 @@ import {MatMenuModule} from '@angular/material/menu';
     HomeComponent,
     QuestionsComponent,
     StepperComponent,
-    HeaderComponent
+    HeaderComponent,
+    NvetudeComponent,
+    ThematiqueComponent,
+    CompetenceComponent,
+    SouscompetenceComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +63,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatMenuModule,
     HttpClientModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
