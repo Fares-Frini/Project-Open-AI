@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators,FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { StepperService } from "./stepper.service";
+import {FormBuilder, Validators,FormControl, FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.css']
-})
+})  
 
 export class StepperComponent implements OnInit {
   public nvetude : any | undefined ;
@@ -20,6 +19,7 @@ export class StepperComponent implements OnInit {
  
   ngOnInit(): void {
     this.getMethod();
+ 
   }
   
   public getMethod()
@@ -71,4 +71,9 @@ export class StepperComponent implements OnInit {
 
   souscompetenceControl = new FormControl<object | null>(null, Validators.required);
   selectsouscompetenceFormControl = new FormControl('', Validators.required);
+
+  public send()
+  {
+    
+  }
 }

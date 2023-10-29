@@ -42,7 +42,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
     NvetudeComponent,
     ThematiqueComponent,
     CompetenceComponent,
-    SouscompetenceComponent
+    SouscompetenceComponent,
   ],
   imports: [
     BrowserModule,
